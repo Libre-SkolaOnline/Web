@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Škola</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>Vítejte ve škole</h2>
+            <input type="text" id="login-client" value="test_client" hidden>
+            <input type="text" id="login-user" placeholder="Uživatelské jméno">
+            <input type="password" id="login-pass" placeholder="Heslo">
+            <button onclick="performLogin()" id="login-btn">Přihlásit se</button>
+            <p id="login-error" style="color:red"></p>
+        </div>
+    </div>
+
+    <div id="app-content" style="display: none;">
+        
+        <header>
+            <div class="user-info">
+                <span id="user-name">Načítám uživatele...</span>
+                <small id="user-class">...</small>
+            </div>
+            <button onclick="logout()">Odhlásit</button>
+        </header>
+
+        <div class="main-layout">
+            <nav class="sidebar">
+                <button onclick="switchView('rozvrh')" class="active">Rozvrh</button>
+                <button onclick="switchView('znamky')">Známky</button>
+                <button onclick="switchView('ukoly')">Úkoly</button>
+                <button onclick="switchView('zpravy')">Zprávy</button>
+            </nav>
+
+            <main id="view-container">
+                <div id="view-rozvrh" class="view-section">
+                    <h2>Rozvrh na tento týden</h2>
+                    <div id="timetable-grid" class="grid-container">Načítám rozvrh...</div>
+                </div>
+
+                <div id="view-znamky" class="view-section" style="display:none">
+                    <h2>Přehled známek</h2>
+                    <div id="marks-list">Načítám známky...</div>
+                </div>
+
+                <div id="view-ukoly" class="view-section" style="display:none">
+                    <h2>Domácí úkoly</h2>
+                    <div id="homework-list">Načítám úkoly...</div>
+                </div>
+
+                <div id="view-zpravy" class="view-section" style="display:none">
+                    <h2>Přijaté zprávy</h2>
+                    <div id="messages-list">Načítám zprávy...</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
